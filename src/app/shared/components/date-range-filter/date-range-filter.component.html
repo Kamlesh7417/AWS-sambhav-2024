@@ -1,0 +1,37 @@
+<div class="flex items-center space-x-4">
+  <select
+    [ngModel]="selectedRange"
+    (ngModelChange)="onRangeChange($event)"
+    class="rounded-lg border-gray-300 text-sm focus:ring-primary-500 focus:border-primary-500"
+  >
+    <option *ngFor="let range of ranges" [value]="range.value">
+      {{ range.label }}
+    </option>
+  </select>
+
+  <ng-container *ngIf="selectedRange === 'custom'">
+    <div class="flex items-center space-x-2">
+      <div class="relative">
+        <i lucide-icon="Calendar" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4"></i>
+        <input
+          type="date"
+          [ngModel]="customRange.start"
+          (ngModelChange)="onCustomRangeChange('start', $event)"
+          class="pl-10 rounded-lg border-gray-300 text-sm focus:ring-primary-500 focus:border-primary-500"
+          placeholder="Start Date"
+        />
+      </div>
+      <span class="text-gray-500">to</span>
+      <div class="relative">
+        <i lucide-icon="Calendar" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4"></i>
+        <input
+          type="date"
+          [ngModel]="customRange.end"
+          (ngModelChange)="onCustomRangeChange('end', $event)"
+          class="pl-10 rounded-lg border-gray-300 text-sm focus:ring-primary-500 focus:border-primary-500"
+          placeholder="End Date"
+        />
+      </div>
+    </div>
+  </ng-container>
+</div>

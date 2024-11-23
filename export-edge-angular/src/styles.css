@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 249 115 22;
+    --color-saffron: 255 153 51;
+  }
+  
+  body {
+    @apply text-gray-900 bg-pattern-light;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-saffron to-primary-600 text-white hover:from-primary-600 hover:to-saffron shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-gray-300 hover:border-primary-500 hover:text-primary-600 hover:bg-primary-50;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .nav-link {
+    @apply flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 hover:bg-primary-50;
+  }
+
+  .nav-link.active {
+    @apply text-primary-600 font-semibold bg-primary-50;
+  }
+}
